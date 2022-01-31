@@ -1,2 +1,2 @@
 # adam-friedmann
-A repository hosting my work for OBW.
+A repository for my classwork at OBW.
