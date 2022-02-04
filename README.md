@@ -1,6 +1,6 @@
 # Hello!
 
-My Name is **Adam**.
+My Name is **Adam Friedmann**.
 This is an exercise I did to create a repo.
 
 I will add more information as time goes on.
