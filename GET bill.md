@@ -1,4 +1,4 @@
-# GET Bill
+# Get Bill
 
 Method | syntax
 ----- | ----------
