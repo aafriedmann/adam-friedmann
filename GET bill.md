@@ -9,11 +9,27 @@ GET | https://www.putnamapp.com/bill
 
 Receives a table number and returns that table's bill including the details of all item's ordered.
 
-Parameters
+### Query Parameters
 
 Name | type | Req. | Description
 ---- | ----- | ----- | --------------------
 tableNumber | int | Y |  The table number for the desired bill. For takeout orders, use 99.
+
+### Response Object
+
+Name | type | Description
+-----| -----| -----------
+orderNumber | int | The order ID number used to generate the bill.
+timestamp | ISO 8601 timestamp | The date and time when the bill was generated.
+totalCost | float | The total cost of all the items on the bill.
+items | Array\<item\> | An array of 'item' objects representing all the items on the bill.
+   
+#### Item object
+
+Name | type | Description
+-----| -----| -----------
+item | string | The menu item.
+cost | float | The menu item's cost.
 
 
 ## Examples
@@ -31,20 +47,19 @@ curl -XGET 'https://putnamapp.com/bill?tableNumber=12'
 
 ```JSON
 {
-   "orderNum":123,
-   "timestamp":"2020-01-21T07:44:45-05:00",
-   "Item1":{
-  	"ItemOrdered":{
-     	"type":"burgerMeal",
-     	"Cost":10.99
-  	}
-   },
-   "Item2":{
-  	"ItemOrdered":{
-     	"type":"salad",
-     	"Cost":9.50
-  	}
-   }
+  "orderNumber": 123,
+  "timestamp": "2020-01-21T07:44:45-05:00",
+  "totalCost" : 20.49,
+  "items": [
+    {
+      "item": "burgerMeal",
+      "cost": 10.99
+    },
+    {
+      "item": "salad",
+      "cost": 9.50
+    }
+  ]
 }
 ```
 
