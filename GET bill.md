@@ -2,12 +2,12 @@
 
 Method | syntax
 ----- | ----------
-GET | URL/bill
+GET | https://www.putnamapp.com/bill
 
 
 ## Description
 
-Receives a table number and returns that table's bill including details of all the item's ordered.
+Receives a table number and returns that table's bill including the details of all item's ordered.
 
 Parameters
 
