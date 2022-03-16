@@ -16,7 +16,7 @@ Creates a meal order and associates it with a table.
 
 Name | type | Req. | Description
 ---- | ----- | ----- | --------------------
-mealType | string | Y |  The meal being ordered. Options: <ul><li>`"breakfast"`</li><li>`"lunch"`</li><li>`"dinner"`</li></ul>
+mealType | string | Y |  The meal being ordered. <br>Options: <ul><li>`"breakfast"`</li><li>`"lunch"`</li><li>`"dinner"`</li></ul>
 tableNumber | int  | Y | The table to associated with the order.
 menuItems | Array\<menuItem\>| Y | An array of the `menuItem` objects included in the order
 
@@ -29,12 +29,14 @@ An object representing a burger. `burger` items contain the following properties
 
 Name | type | Req. | Description
 -----| -----| ---- | -----------
-pattyType | string | Y | The type of patty in the burger. Options: <ul><li>`"beef"`</li><li>`"chicken"`</li><li>`"veggie"`</li></ul>
-pattyWeight | int | Y | The weight of the patty, in grams. Options: <ul><li>`100`</li><li>`200`</li><li>`300`</li></ul>
-pattyCook | string | Y | How cooked the patty is. Options: <ul><li>`"rare"`</li><li>`"mediumRare"`</li><li>`"wellDone"`</li></ul>
+pattyType | string | Y | The type of patty in the burger. <br>Options: <ul><li>`"beef"`</li><li>`"chicken"`</li><li>`"veggie"`</li></ul>
+pattyWeight | int | Y | The weight of the patty, in grams. <br>Options: <ul><li>`100`</li><li>`200`</li><li>`300`</li></ul>
+pattyCook | string | Y | How cooked the patty is. <br>Options: <ul><li>`"rare"`</li><li>`"mediumRare"`</li><li>`"wellDone"`</li></ul>
 pattyQuantity | int | Y | The number of patties in the burger. The maximum value is `3`. The values for `pattyType`, `pattyWeight`, and `pattyCook` are the same for all patties.
-bunType | string | Y | The type of bun for the burger. Options: <ul><li>`"white"`</li><li>`"wholeWheat"`</li><li>`"glutenFree"`</li></ul>
-condiments | Array\<string\> | N | The toppings for the burger. The 
+bunType | string | Y | The type of bun for the burger. <br>Options: <ul><li>`"white"`</li><li>`"wholeWheat"`</li><li>`"glutenFree"`</li></ul>
+condiments | Array\<string\> | N | The condiments for the burger. You can only add 2 condiments to a burger. If the `condiments` array includes more than 2 items, only the first 2 are included in the order. <br>Options: <ul><li>`"ketchup"`</li><li>`"mustard"`</li><li>`"chimichurri"`</li><li>`"mayo"`</li></ul>
+toppings | Array\<string\> | N | The toppings for the burger. You can only add 3 toppings to a burger. If the `toppings` array includes more than 3 items, only the first 3 are included in the order. <br>Options: <ul><li>`"lettuce"`</li><li>`"pickles"`</li><li>`"tomatoes"`</li><li>`"friedEgg"`</li></ul>
+
 
 ##### Meal Items
 Name | Description
