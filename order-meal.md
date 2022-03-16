@@ -16,13 +16,25 @@ Creates a meal order and associates it with a table.
 
 Name | type | Req. | Description
 ---- | ----- | ----- | --------------------
-mealType | string | Y |  The meal being ordered. Options: `breakfast`, `lunch`, `dinner`
+mealType | string | Y |  The meal being ordered. Options: <ul><li>`"breakfast"`</li><li>`"lunch"`</li><li>`"dinner"`</li></ul>
 tableNumber | int  | Y | The table to associated with the order.
 menuItems | Array\<menuItem\>| Y | An array of the `menuItem` objects included in the order
 
 #### Menu Items
 
 These are the menu items you can include in the `menuItems` array. They represent all the things available on Putnam Diner menu. `Meal` items are collection objects that contain the components that make up a meal, including other menu items.
+
+##### burger
+An object representing a burger. `burger` items contain the following properties:
+
+Name | type | Req. | Description
+-----| -----| ---- | -----------
+pattyType | string | Y | The type of patty in the burger. Options: <ul><li>`"beef"`</li><li>`"chicken"`</li><li>`"veggie"`</li></ul>
+pattyWeight | int | Y | The weight of the patty, in grams. Options: <ul><li>`100`</li><li>`200`</li><li>`300`</li></ul>
+pattyCook | string | Y | How cooked the patty is. Options: <ul><li>`"rare"`</li><li>`"mediumRare"`</li><li>`"wellDone"`</li></ul>
+pattyQuantity | int | Y | The number of patties in the burger. The maximum value is `3`. The values for `pattyType`, `pattyWeight`, and `pattyCook` are the same for all patties.
+bunType | string | Y | The type of bun for the burger. Options: <ul><li>`"white"`</li><li>`"wholeWheat"`</li><li>`"glutenFree"`</li></ul>
+condiments | Array\<string\> | N | The toppings for the burger. The 
 
 ##### Meal Items
 Name | Description
@@ -64,7 +76,7 @@ burgerMeal | An object representing a burger meal, containing the following menu
                     "pattyType": "beef",
                     "pattyQuantity": 1,
                     "pattyWeight": 300, // In grams
-                    "pattyCook": "MR",
+                    "pattyCook": "mediumRare",
                     "bunType": "wholeWheat", //white, glutenFree
                     "condiments": [
                         "ketchup",
