@@ -9,10 +9,12 @@ POST | https://putnamapp.com/order
 
 Creates a meal order and associates it with a table.
 
-> **Note**
-> The POC version of the app only supports 
+> **Note**  
+> The POC version of the app only supports the `burgerMeal` menu item.
 
-Parameters
+### Parameters
+
+Requests to this endpoint must include an object that defines the type of meal, the menu items ordered
 
 Name | type | Req. | Description
 ---- | ----- | ----- | --------------------
