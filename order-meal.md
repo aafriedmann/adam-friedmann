@@ -16,7 +16,7 @@ Creates a meal order and associates it with a table.
 
 Name | type | Req. | Description
 ---- | ----- | ----- | --------------------
-mealType | string | Y |  The meal being ordered. <br>Options: <ul><li>`"breakfast"`</li><li>`"lunch"`</li><li>`"dinner"`</li></ul>
+mealType | string | Y |  The meal being ordered. <br>Options: `"breakfast"`,`"lunch"`, `"dinner"`
 tableNumber | int  | Y | The table to associated with the order.
 menuItems | Array\<menuItem\>| Y | An array of the `menuItem` objects included in the order
 
@@ -29,31 +29,43 @@ An object representing a burger. `burger` items contain the following properties
 
 Name | type | Req. | Description
 -----| -----| ---- | -----------
-pattyType | string | Y | The type of patty in the burger. <br>Options: <ul><li>`"beef"`</li><li>`"chicken"`</li><li>`"veggie"`</li></ul>
-pattyWeight | int | Y | The weight of the patty, in grams. <br>Options: <ul><li>`100`</li><li>`200`</li><li>`300`</li></ul>
-pattyCook | string | Y | How cooked the patty is. <br>Options: <ul><li>`"rare"`</li><li>`"mediumRare"`</li><li>`"wellDone"`</li></ul>
+pattyType | string | Y | The type of patty in the burger. <br>Options: `"beef"`, `"chicken"`, `"veggie"`
+pattyWeight | int | Y | The weight of the patty, in grams. <br>Options: `100`, `200`, `300`
+pattyCook | string | Y | How cooked the patty is. <br>Options: `"rare"`, `"mediumRare"`, `"wellDone"`
 pattyQuantity | int | Y | The number of patties in the burger. The maximum value is `3`. The values for `pattyType`, `pattyWeight`, and `pattyCook` are the same for all patties.
-bunType | string | Y | The type of bun for the burger. <br>Options: <ul><li>`"white"`</li><li>`"wholeWheat"`</li><li>`"glutenFree"`</li></ul>
-condiments | Array\<string\> | N | The condiments for the burger. You can only add 2 condiments to a burger. If the `condiments` array includes more than 2 items, only the first 2 are included in the order. <br>Options: <ul><li>`"ketchup"`</li><li>`"mustard"`</li><li>`"chimichurri"`</li><li>`"mayo"`</li></ul>
-toppings | Array\<string\> | N | The toppings for the burger. You can only add 3 toppings to a burger. If the `toppings` array includes more than 3 items, only the first 3 are included in the order. <br>Options: <ul><li>`"lettuce"`</li><li>`"pickles"`</li><li>`"tomatoes"`</li><li>`"friedEgg"`</li></ul>
+bunType | string | Y | The type of bun for the burger. <br>Options: `"white"`, `"wholeWheat"`, `"glutenFree"`
+condiments | Array\<string\> | N | The condiments for the burger. You can only add 2 condiments to a burger. If the `condiments` array includes more than 2 items, only the first 2 are included in the order. <br>Options: `"ketchup"`, `"mustard"`, `"chimichurri"`, `"mayo"`
+toppings | Array\<string\> | N | The toppings for the burger. You can only add 3 toppings to a burger. If the `toppings` array includes more than 3 items, only the first 3 are included in the order. <br>Options: `"lettuce"`, `"pickles"`, `"tomatoes"`, `"friedEgg"`
 
 
 ##### sides
-An array of objects representing any side dishes included in the order. Meal items have limits for the amount and size of the side dishes that you can add to the meal. Each side dish object contains the following properties:
+An array of objects representing side dishes included in the order. Meal items have limits for the amount and size of the side dishes that you can add to the meal. Each side dish object contains the following properties:
 
 Name | type | Req.| Description
 ---- | ---- | --- | -----------
-type | string | Y | The type of side dish. <br>Options: <ul><li>`"frenchFries"`</li><li>`"mashedPotatoes"`</li><li>`"onionRings"`</li><li>`"coleslaw"`</li></ul>
+type | string | Y | The type of side dish. <br>Options: `"frenchFries"`, `"mashedPotatoes"`, `"onionRings"`, `"coleslaw"`
 size | string | Y | The size of the side dish. Either `"small"` or `"large"`.
 
+##### drink
+An array of objects representing drinks included in the order. Meal items have limits for the amount and size of the drinks that you can add to the meal. Each drink object contains the following properties:
+
+Name | type | Req.| Description
+---- | ---- | --- | -----------
+type | string | Y | The type of drink. <br>Options: `"coke"`, `"dietCoke"`, `"sprite"`, `"water"`
+size | string | Y | The size of the side dish. <br>Options: `"small"`, `"large"`
+ice | boolean | N | A boolean representing if a drink comes with ice. Defaults to `true`.
+
+
+
 ##### Meal Items
+
+Each meal item contains several other menu item objects and defines the limits of those items in the meal.
+
 Name | Description
 ---- | -----------
-burgerMeal | An object representing a burger meal, containing the following menu items: <ul><li>`burger` (required)</li><li>`sides` (optional, limit: 2 small dishes)</li><li>`drink` (optional)</li></ul>
+burgerMeal | An object representing a burger meal, containing the following menu items: <ul><li>`burger`(required, limit: 1)</li><li>`sides` (optional, limit: 2 small dishes)</li><li>`drink` (optional, limit: 1 small or medium drink)</li></ul>
 
 
-<!-- Replace the two example rows and include rows for all your parameters. -->
-<!-- If one of the parameters has a set of sub-parameters, create a table or bulleted list for that, but proceed with caution. If the API is complex, there might be an easier way to do your reference section than writing markup by hand. -->
 
 ## Examples
 
