@@ -38,10 +38,18 @@ condiments | Array\<string\> | N | The condiments for the burger. You can only a
 toppings | Array\<string\> | N | The toppings for the burger. You can only add 3 toppings to a burger. If the `toppings` array includes more than 3 items, only the first 3 are included in the order. <br>Options: <ul><li>`"lettuce"`</li><li>`"pickles"`</li><li>`"tomatoes"`</li><li>`"friedEgg"`</li></ul>
 
 
+##### sides
+An array of objects representing any side dishes included in the order. Meal items have limits for the amount and size of the side dishes that you can add to the meal. Each side dish object contains the following properties:
+
+Name | type | Req.| Description
+---- | ---- | --- | -----------
+type | string | Y | The type of side dish. <br>Options: <ul><li>`"frenchFries"`</li><li>`"mashedPotatoes"`</li><li>`"onionRings"`</li><li>`"coleslaw"`</li></ul>
+size | string | Y | The size of the side dish. Either `"small"` or `"large"`.
+
 ##### Meal Items
 Name | Description
 ---- | -----------
-burgerMeal | An object representing a burger meal, containing the following menu items: <ul><li>`burger` (required)</li><li>`sides` (optional)</li><li>`drink` (optional)</li></ul>
+burgerMeal | An object representing a burger meal, containing the following menu items: <ul><li>`burger` (required)</li><li>`sides` (optional, limit: 2 small dishes)</li><li>`drink` (optional)</li></ul>
 
 
 <!-- Replace the two example rows and include rows for all your parameters. -->
@@ -92,7 +100,7 @@ burgerMeal | An object representing a burger meal, containing the following menu
                 "sides": [ // limit of 2
                     {
                         "type": "frenchFries",
-                        "size": "L" // S, M, L (small included in price, M and L add to price)
+                        "size": "large" // S, M, L (small included in price, M and L add to price)
                     },
                     {
                         "type": "none", //No need for this.
@@ -101,7 +109,7 @@ burgerMeal | An object representing a burger meal, containing the following menu
                 ],
                 "drink": {
                     "type": "coke",
-                    "size": "L", // S, M, L, XL (small or medium included in price, L, XL add to price)
+                    "size": "large", // S, M, L, XL (small or medium included in price, L, XL add to price)
                     "ice": true
                 }
             }
