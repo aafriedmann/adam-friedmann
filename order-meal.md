@@ -71,19 +71,56 @@ burgerMeal | An object representing a burger meal, containing the following menu
 
 ### Request
 
+Here is a sample request for a burger meal using cURL.
+
+```BASH
+curl -XPOST -H "Content-type: application/json" -d '{
+    
+    "mealType": "lunch",
+    "tableNumber" : 12,
+    "menuItems": [
+        {
+            "burgerMeal" : {
+                "burger": {
+                    "pattyType": "beef",
+                    "pattyQuantity": 1,
+                    "pattyWeight": 300,
+                    "pattyCook": "mediumRare",
+                    "bunType": "wholeWheat",
+                    "condiments": [
+                        "ketchup",
+                        "secretSauce"
+                    ],
+                    "toppings": [
+                        "lettuce",
+                        "pickles"
+                    ]
+                },
+                "sides": [
+                    {
+                        "type": "frenchFries",
+                        "size": "large" 
+                    }
+                ],
+                "drink": {
+                    "type": "coke",
+                    "size": "large",
+                    "ice": true
+                }
+            }
+        }
+    ]
+}' 'https://www.putnamapp.com/order'
+```
+
+### Response
+
 ```HTTP
 <!--  A copy-and-paste working request, if possible. Not one with values replaced by their names, such as "ID." -->
 
 ```
 
 <!-- Follow with comments to explain what each part of the request is doing -->
-
-### Response
-
-```HTTP
-<!--  An actual response returned by this endpoint for the request above.  -->
-
-```
 
 <!-- Write a comment explaining the response, if it would be helpful. For a response with a complicated schema, create a table like the one used above for the request.  -->
 
@@ -92,27 +129,27 @@ burgerMeal | An object representing a burger meal, containing the following menu
     "mealType": "lunch",
     "tableNumber" : 12,
     "menuItems": [
-        { // If it's a burgerMeal, the app accepts the following in the "mealComponents" section (burger (required), sides (optional), drink(optional))
+        {
             "burgerMeal" : {
                 "burger": {
                     "pattyType": "beef",
                     "pattyQuantity": 1,
-                    "pattyWeight": 300, // In grams
+                    "pattyWeight": 300,
                     "pattyCook": "mediumRare",
-                    "bunType": "wholeWheat", //white, glutenFree
+                    "bunType": "wholeWheat",
                     "condiments": [
                         "ketchup",
-                        "secretSauce" //mustard, chimichuri, relish
-                    ], //2 included
+                        "secretSauce"
+                    ],
                     "toppings": [
                         "lettuce",
                         "pickles"
-                    ] // 3 included
+                    ]
                 },
-                "sides": [ // limit of 2
+                "sides": [
                     {
                         "type": "frenchFries",
-                        "size": "large" // S, M, L (small included in price, M and L add to price)
+                        "size": "large" 
                     },
                     {
                         "type": "none", //No need for this.
@@ -121,7 +158,7 @@ burgerMeal | An object representing a burger meal, containing the following menu
                 ],
                 "drink": {
                     "type": "coke",
-                    "size": "large", // S, M, L, XL (small or medium included in price, L, XL add to price)
+                    "size": "large",
                     "ice": true
                 }
             }
